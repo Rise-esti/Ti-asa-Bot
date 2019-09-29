@@ -1,19 +1,14 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 
+
 chatbot = ChatBot(
     "@ti-asa",
+    database_uri='sqlite:///db/ti-asa.db',
     logic_adapters=["chatterbot.logic.BestMatch"],
 )
 
-# exemple de donnée d'entrainement
-conversation = [
-    "Bonjour", "Bonjour!"
-    "Besoin de travail", "ça tombe bien, ti-asa est là pour vous aider",
-    "Comment allez-vous", "Super en forme"
-]
 trainer = ListTrainer(chatbot)
-trainer.train('./salfr.json')
 
 while True:
     enter = input('>> ')
@@ -21,3 +16,5 @@ while True:
         break
     ques = chatbot.get_response(enter)
     print(ques)
+
+print('Bye!')

@@ -25,7 +25,7 @@ while True:
     discuss.append(text)
 
 
-fileName = './dataset/' + autor + str(time.time()) + '.pickle'
+fileName = './dataset/' + autor + '_' + titre + str(time.time()) + '.pickle'
 
 with open(fileName, 'wb') as file:
     pickle.dump(discuss, file)
