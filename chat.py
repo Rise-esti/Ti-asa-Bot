@@ -1,18 +1,19 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 
-chatbot = ChatBot("Gaetan Jonathan",
-                   logic_adapters=[
-        "chatterbot.logic.BestMatch"
-    ])
+chatbot = ChatBot(
+    "@ti-asa",
+    logic_adapters=["chatterbot.logic.BestMatch"],
+)
 
 # exemple de donnée d'entrainement
-conversation = ["Salut", "@ti-asa Bot vous Salut", "ça va?", "oui et toi",
-                "ça va aussi", "cool"]
-
+conversation = [
+    "Bonjour", "Bonjour!"
+    "Besoin de travail", "ça tombe bien, ti-asa est là pour vous aider",
+    "Comment allez-vous", "Super en forme"
+]
 trainer = ListTrainer(chatbot)
-
-trainer.train(conversation)
+trainer.train('./salfr.json')
 
 while True:
     enter = input('>> ')
