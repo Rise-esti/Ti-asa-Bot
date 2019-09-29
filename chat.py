@@ -15,7 +15,7 @@ chatbot = ChatBot(
 
         {
             'import_path': "chatterbot.logic.MathematicalEvaluation",
-            'language': chatterbot.languages.FR
+            'language': chatterbot.languages.FRE
          }
     ],
 )
