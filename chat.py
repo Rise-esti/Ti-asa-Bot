@@ -3,6 +3,7 @@ from chatterbot.trainers import ListTrainer
 
 chatbot = ChatBot(
     "@ti-asa",
+    database_uri='sqlite://db/db.sqlite3',
     logic_adapters=["chatterbot.logic.BestMatch"],
 )
 
