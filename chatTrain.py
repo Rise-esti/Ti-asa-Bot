@@ -24,7 +24,7 @@ try:
 except ValueError:
     pass
 
-i = 0
+i = 1
 
 for fic in res:
     try:
