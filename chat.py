@@ -27,12 +27,13 @@ try:
     res.remove('')
 except:
     pass
+i = 0
 for file in res:
     try:
         with open('dataset/' + file, 'rb') as trainSet:
             ds = pickle.load(trainSet)
         trainer.train(ds)
-        print('ok')
+        print(f" {i} fichier d'entrainement trouvé(s)...")
     except:
         pass
 while True:
