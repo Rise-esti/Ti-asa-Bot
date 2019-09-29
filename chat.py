@@ -5,7 +5,7 @@ import pickle
 
 chatbot = ChatBot(
     "@ti-asa",
-    database_uri='sqlite:///db/db.sqlite3',
+    database_uri='sqlite:///db/ti-asa.db',
     logic_adapters=["chatterbot.logic.BestMatch"],
 )
 
