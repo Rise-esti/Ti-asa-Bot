@@ -10,7 +10,7 @@ chatbot = ChatBot(
         {
             'import_path': "chatterbot.logic.BestMatch",
             'default_response': 'Je ne comprends ce que vous dites',
-            'maximum_similarity_threshold':  0.90
+            'maximum_similarity_threshold':  0.50
         },
 
         {
