@@ -18,7 +18,7 @@ conversation = [
 
 
 trainer = ListTrainer(chatbot)
-#trainer.train('./salfr.json')
+# trainer.train('./salfr.json')
 
 res = os.popen('ls dataset')
 res = res.read().split('\n')
@@ -34,6 +34,7 @@ for file in res:
             ds = pickle.load(trainSet)
         trainer.train(ds)
         print(f" {i} fichier d'entrainement trouvé(s)...")
+        i += 1
     except:
         pass
 while True:
