@@ -1,6 +1,11 @@
-import chatterbot
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+
+enter = ''
+
+
+def command(value):
+    return "Hello World" + value
 
 
 chatbot = ChatBot(
@@ -8,15 +13,15 @@ chatbot = ChatBot(
     database_uri='sqlite:///db/ti-asa.db',
     logic_adapters=[
         {
+            'import_path': 'chatterbot.logic.SpecificResponseAdapter',
+            'input_text': 'tiasa',
+            'output_text': command(enter)
+        },
+        {
             'import_path': "chatterbot.logic.BestMatch",
-            'default_response': 'Je ne comprends ce que vous dites',
-            'maximum_similarity_threshold':  0.50
+            'maximum_similarity_threshold':  0.20
         },
 
-        {
-            'import_path': "chatterbot.logic.MathematicalEvaluation",
-            'language': chatterbot.languages.FRE
-         }
     ],
 )
 
