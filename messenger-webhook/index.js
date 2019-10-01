@@ -35,7 +35,7 @@ app.post('/webhook', (req, res) => {
 
 });
 
-/ Adds support for GET requests to our webhook
+// Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
