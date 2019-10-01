@@ -35,6 +35,7 @@ for fic in res:
         trainer.train(ds)
 
         print(f" {i} nouveau fichier d'entrainement trouvé(s)...")
+        os.popen(f"echo '{datetime.today()}: {fic} nouveau fichier d'entrainement trouvé(s)...'>>train.log")
 
         i += 1
 
