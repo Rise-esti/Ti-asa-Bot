@@ -1,0 +1,28 @@
+{
+  "name": "messenger-webhook",
+  "version": "1.0.0",
+  "description": "Webhook pour les notifications du Bot Ti-asa ChatBot",
+  "main": "index.js",
+  "dependencies": {
+    "n": "^6.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rise-esti/Ti-asa-Bot.git"
+  },
+  "keywords": [
+    "Ti-asa",
+    "Bot",
+    "Emploi"
+  ],
+  "author": "Gaetan Jonathan || Rise Group",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rise-esti/Ti-asa-Bot/issues"
+  },
+  "homepage": "https://github.com/Rise-esti/Ti-asa-Bot#readme"
+}
