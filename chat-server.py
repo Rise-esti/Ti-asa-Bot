@@ -7,7 +7,7 @@ from chatterbot.trainers import ListTrainer
 
 chatbot = ChatBot(
     "@ti-asa",
-    database_uri='sqlite:///home/esti/Ti-asa-Bot/db/ti-asa.db',
+    database_uri='sqlite:///db/ti-asa.db',
     logic_adapters=[
         {
             'import_path': "chatterbot.logic.BestMatch",
@@ -26,7 +26,7 @@ app = Flask(__name__)
 def listen():
     text = request.form.get('text')
     print(text)
-    text = chatbot.get_response(text)
+    text = chatbot.get_response(str(text))
     print(text)
     return str(text)
 
