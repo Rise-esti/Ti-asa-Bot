@@ -1,3 +1,5 @@
+#coding : utf-8
+
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 import os

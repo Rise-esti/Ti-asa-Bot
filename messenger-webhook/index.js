@@ -1,7 +1,7 @@
 
 'use strict';
 // le token de la page
-const PAGE_ACCESS_TOKEN = "EAAgl1cfQLIIBAFm0JZCZAwZBTNwPWj8peMp9PURFRnullWJF9nwCPLZBebDmY3QZCWGEXQAZAFg9zTlbjrquLNunWP2HLdE4Bwd7jUvJdsrV3aWaZAioHH8RoGop4nsJ7ZBcEElr6TxQfvStQ1kH41SQcTPxZAvLVLa1Tu4CBMtUaDgZDZD";
+const PAGE_ACCESS_TOKEN = "EAAgl1cfQLIIBAEWJRVZAUUiHPqcR5CTb2TtOlrcbjr7mwqGOgEQB7I9nE0yUS0xkFACZAJsKpc98BQif0uOZBhKJGMlrvADJpocC6hN7nAll9k85ukW3DI6rRJNyBNR0PJcZAv5c1EM5L21XvcZAUM9ecxyxZC3seZCQZBob1WWeZCQZDZD";
 // On va importer les dependances ci-dessus
 const 
   request = require('request'),
@@ -82,12 +82,30 @@ app.get('/webhook', (req, res) => {
 
 function handleMessage(sender_psid, received_message) {
   let response;
+  let bot_reponse;
   
   // si le message est un fichier texte
   if (received_message.text) {    
-    // creer alors le message de retour 
+    // creer alors le message de retour
+	
+	request.post({
+		headers: {'content-type' : 'application/x-www-form-urlencoded'},
+		url: 'http://localhost:5000/bot',
+		body: `text="${received_message.text}"`, 
+	function(error, response, body){
+		//console.log(body);
+		if (!error){
+			bot_reponse = body;
+		}
+		else{
+			bot_reponse = "Désolé il y a une erreur dans mon programme, Veuillez avertir un des Admin, https://ti-asa.esti.mg#team, Merci ";
+		}
+	}
+}
+
+);
     response = {
-      "text": `Vous avez envoyer ce message: "${received_message.text}". Comming Soon, Ti-asa Bot n'est pas encore fonctionnel!`
+      "text": bot_reponse
     }
   } else if (received_message.attachments) {
     // cas d'envoie d'une piece jointe 
@@ -152,7 +170,7 @@ function callSendAPI(sender_psid, response) {
   // envoie la requete http a messenger pour transferer a la personne
   request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token":  "EAAgl1cfQLIIBAFm0JZCZAwZBTNwPWj8peMp9PURFRnullWJF9nwCPLZBebDmY3QZCWGEXQAZAFg9zTlbjrquLNunWP2HLdE4Bwd7jUvJdsrV3aWaZAioHH8RoGop4nsJ7ZBcEElr6TxQfvStQ1kH41SQcTPxZAvLVLa1Tu4CBMtUaDgZDZD"},
+    "qs": { "access_token":  "EAAgl1cfQLIIBAEWJRVZAUUiHPqcR5CTb2TtOlrcbjr7mwqGOgEQB7I9nE0yUS0xkFACZAJsKpc98BQif0uOZBhKJGMlrvADJpocC6hN7nAll9k85ukW3DI6rRJNyBNR0PJcZAv5c1EM5L21XvcZAUM9ecxyxZC3seZCQZBob1WWeZCQZDZD"},
     "method": "POST",
     "json": request_body
   }, (err, res, body) => {
