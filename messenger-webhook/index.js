@@ -83,7 +83,6 @@ app.get('/webhook', (req, res) => {
 
 function handleMessage(sender_psid, received_message) {
   let response;
-  
   // si le message est un fichier texte
   if (received_message.text) {    
     // creer alors le message de retour
@@ -101,12 +100,16 @@ function handleMessage(sender_psid, received_message) {
 			else{
 			bot_reponse = "Désolé il y a une erreur dans mon programme, Veuillez avertir un des Admin, https://ti-asa.esti.mg#team, Merci ";
 			}
-		}	
 
+    			response = {
+      				"text": `${bot_reponse}`
+			}
+
+  			callSendAPI(sender_psid, response);
+		}
+  	
 	);
-    response = {
-      "text": `@ti-asa: "${bot_reponse}"`
-    }
+	  
   } else if (received_message.attachments) {
     // cas d'envoie d'une piece jointe 
     let attachment_url = received_message.attachments[0].payload.url;
@@ -136,9 +139,10 @@ function handleMessage(sender_psid, received_message) {
         }
       }
     }
+  	callSendAPI(sender_psid, response);
+	  // aketo ein 
   } 
   
-  callSendAPI(sender_psid, response);
   // envoie du message de retour 
 }
 
