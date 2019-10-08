@@ -9,11 +9,7 @@ chatbot = ChatBot(
     "@ti-asa",
     database_uri='sqlite:////home/esti/Ti-asa-Bot/db/ti-asa.db',
     logic_adapters=[
-<<<<<<< HEAD
         "chatterbot.logic.BestMatch"
-=======
-        "chatterbot.logic.BestMatch",
->>>>>>> 6afd5dc988e014bb6b046f34b19007f73369ded4
     ],
 )
 
